@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   z-index: 9999;
   box-sizing: border-box;
   /* background-color: #1b1c22; */
-  background: linear-gradient(193.68deg, #1b1c22 0.68%, #000000 100.48%);
+  background: linear-gradient(193.68deg, #282828 0.68%, #404040 100.48%);
   color: ${({ theme }) => theme.bg2};
 
   @media screen and (max-width: 800px) {
@@ -164,17 +164,12 @@ function SideNav({ history }) {
           </AutoColumn>
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
-              <Link href="https://honeyswap.org" target="_blank">
-                Honeyswap.org
+              <Link href="https://griffin.exchange" target="_blank">
+                Gigaswap.exchange
               </Link>
             </HeaderText>
             <HeaderText>
-              <Link href="https://about.1hive.org/docs/honeyswap" target="_blank">
-                Docs
-              </Link>
-            </HeaderText>
-            <HeaderText>
-              <Link href="https://twitter.com/1hiveorg" target="_blank">
+              <Link href="https://twitter.com/gfin" target="_blank">
                 Twitter
               </Link>
             </HeaderText>

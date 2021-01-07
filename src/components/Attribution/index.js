@@ -2,12 +2,12 @@ import React from 'react'
 
 const Attribution = () => (
   <p className="attribution">
-    <a href="https://github.com/1Hive/uniswap-info" rel="noopener noreferrer" target="_blank">
+    <a href="https://github.com/Griffin-Exchange/" rel="noopener noreferrer" target="_blank">
       Github
     </a>{' '}
     |{' '}
-    <a href="https://honeyswap.org" rel="noopener noreferrer" target="_blank">
-      Honeyswap
+    <a href="https://griffin.exchange" rel="noopener noreferrer" target="_blank">
+      GigaSwap
     </a>{' '}
     |{' '}
     <a href="https://gifer.com/en/1Atv" rel="noopener noreferrer" target="_blank">

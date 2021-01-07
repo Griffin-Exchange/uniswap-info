@@ -5,8 +5,7 @@ import styled from 'styled-components'
 import { Flex } from 'rebass'
 import Link from '../Link'
 import { RowFixed } from '../Row'
-import Logo from '../../assets/logo_white.svg'
-import Wordmark from '../../assets/wordmark_white.svg'
+import Logo from '../../assets/logo.png'
 
 const TitleWrapper = styled.div`
   text-decoration: none;
@@ -25,6 +24,14 @@ const UniIcon = styled(Link)`
   }
 `
 
+const TitleText = styled.span`
+  font-family: 'Bebas Neue', cursive;
+  font-size: 16pt;
+  color: #fff;
+  margin-left: 8px;
+  margin-top: 0px;
+`
+
 export default function Title() {
   const history = useHistory()
 
@@ -35,7 +42,7 @@ export default function Title() {
           <UniIcon id="link" onClick={() => history.push('/')}>
             <img width={'24px'} src={Logo} alt="logo" />
           </UniIcon>
-          <img width={'84px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={Wordmark} alt="logo" />
+          <TitleText>Giga Exchange</TitleText>
         </RowFixed>
       </Flex>
     </TitleWrapper>

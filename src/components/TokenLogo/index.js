@@ -68,7 +68,14 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
     )
   }
 
-  const path = listedTokensMap[address]?.logoURI
+  let path = ''
+
+  if (address === '0x822fb282df684464aafa1b01330bc0bdd2c98675') {
+    path = `https://griffin.exchange/images/${address}.png`
+  } else {
+    path = listedTokensMap[address]?.logoURI
+  }
+
   if (!path) {
     setError(true)
   }

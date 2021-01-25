@@ -301,6 +301,7 @@ export function useListedTokens() {
         return Promise.resolve([...tokensSoFar, ...newTokens.tokens])
       }, Promise.resolve([]))
       let formatted = allFetched?.map(t => t.address.toLowerCase())
+      formatted.push('0x822fb282df684464aafa1b01330bc0bdd2c98675')
       updateSupportedTokens(formatted)
     }
     if (!supportedTokens) {

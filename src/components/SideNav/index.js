@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { AutoColumn } from '../Column'
 import Title from '../Title'
-import { BasicLink } from '../Link'
+import { BasicLink, BlankLink } from '../Link'
 import { useMedia } from 'react-use'
 import { transparentize } from 'polished'
 import { TYPE } from '../../Theme'
 import { withRouter } from 'react-router-dom'
-import { TrendingUp, List, PieChart, Disc } from 'react-feather'
+import { TrendingUp, List, Disc, Wind, PlusSquare, Star, RefreshCcw } from 'react-feather'
 import Link from '../Link'
 import { useSessionStart } from '../../contexts/Application'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
@@ -122,7 +122,7 @@ function SideNav({ history }) {
                     Overview
                   </Option>
                 </BasicLink>
-                <BasicLink to="/tokens">
+                {/* <BasicLink to="/tokens">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'tokens' ||
@@ -145,7 +145,7 @@ function SideNav({ history }) {
                     <PieChart size={20} style={{ marginRight: '.75rem' }} />
                     Pairs
                   </Option>
-                </BasicLink>
+                </BasicLink> */}
 
                 <BasicLink to="/accounts">
                   <Option
@@ -156,9 +156,74 @@ function SideNav({ history }) {
                     }
                   >
                     <List size={20} style={{ marginRight: '.75rem' }} />
-                    Accounts
+                    Portofolio
                   </Option>
                 </BasicLink>
+
+                <BlankLink href="https://bridge.xdaichain.com/" target="_blank">
+                  <Option
+                    activeText={
+                      (history.location.pathname.split('/')[1] === 'get-xdai' ||
+                        history.location.pathname.split('/')[1] === 'get-xdai') ??
+                      undefined
+                    }
+                  >
+                    <Disc size={20} style={{ marginRight: '.75rem' }} />
+                    Get Xdai for gas fee
+                  </Option>
+                </BlankLink>
+
+                <BlankLink href="https://griffin.exchange/farms" target="_blank">
+                  <Option
+                    activeText={
+                      (history.location.pathname.split('/')[1] === 'get-xdai' ||
+                        history.location.pathname.split('/')[1] === 'get-xdai') ??
+                      undefined
+                    }
+                  >
+                    <Wind size={20} style={{ marginRight: '.75rem' }} />
+                    Import LP token
+                  </Option>
+                </BlankLink>
+
+                <BlankLink href="https://griffin.exchange/app/#/swap" target="_blank">
+                  <Option
+                    activeText={
+                      (history.location.pathname.split('/')[1] === 'swap' ||
+                        history.location.pathname.split('/')[1] === 'swap') ??
+                      undefined
+                    }
+                  >
+                    <PlusSquare size={20} style={{ marginRight: '.75rem' }} />
+                    Add Liquidity
+                  </Option>
+                </BlankLink>
+
+                <BlankLink href="https://griffin.exchange/staking" target="_blank">
+                  <Option
+                    activeText={
+                      (history.location.pathname.split('/')[1] === 'staking' ||
+                        history.location.pathname.split('/')[1] === 'staking') ??
+                      undefined
+                    }
+                  >
+                    <Star size={20} style={{ marginRight: '.75rem' }} />
+                    Stake
+                  </Option>
+                </BlankLink>
+
+                <BlankLink href="https://griffin.exchange/app/#/pool" target="_blank">
+                  <Option
+                    activeText={
+                      (history.location.pathname.split('/')[1] === 'pool' ||
+                        history.location.pathname.split('/')[1] === 'pool') ??
+                      undefined
+                    }
+                  >
+                    <RefreshCcw size={20} style={{ marginRight: '.75rem' }} />
+                    Swap
+                  </Option>
+                </BlankLink>
               </AutoColumn>
             )}
           </AutoColumn>

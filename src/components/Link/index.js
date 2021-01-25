@@ -53,3 +53,13 @@ export const BasicLink = styled(RouterLink)`
     underline: none;
   }
 `
+
+export const BlankLink = styled.a`
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    underline: none;
+  }
+`

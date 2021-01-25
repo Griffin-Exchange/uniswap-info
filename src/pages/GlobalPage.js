@@ -126,7 +126,7 @@ function GlobalPage() {
           )}
           <ListOptions gap="10px" style={{ marginTop: '2rem', marginBottom: '.5rem' }}>
             <RowBetween>
-              <TYPE.main fontSize={'1.125rem'}>Top Tokens</TYPE.main>
+              <TYPE.main fontSize={'1.125rem'}>Tokens</TYPE.main>
               <CustomLink to={'/tokens'}>See All</CustomLink>
             </RowBetween>
           </ListOptions>
@@ -135,7 +135,7 @@ function GlobalPage() {
           </Panel>
           <ListOptions gap="10px" style={{ marginTop: '2rem', marginBottom: '.5rem' }}>
             <RowBetween>
-              <TYPE.main fontSize={'1rem'}>Top Pairs</TYPE.main>
+              <TYPE.main fontSize={'1rem'}>Pairs</TYPE.main>
               <CustomLink to={'/pairs'}>See All</CustomLink>
             </RowBetween>
           </ListOptions>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'feather-icons'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
@@ -12,6 +12,7 @@ import { Hover, StyledIcon } from '..'
 import Panel from '../Panel'
 import { Divider } from '..'
 import { Flex } from 'rebass'
+import { useWallet } from 'use-wallet'
 
 import { X } from 'react-feather'
 
@@ -76,6 +77,7 @@ const DashGrid = styled.div`
 function AccountSearch({ history, small }) {
   const [accountValue, setAccountValue] = useState()
   const [savedAccounts, addAccount, removeAccount] = useSavedAccounts()
+  const { account, connect } = useWallet()
 
   function handleAccountSearch() {
     if (isAddress(accountValue)) {
@@ -85,6 +87,12 @@ function AccountSearch({ history, small }) {
       }
     }
   }
+
+  useEffect(() => {
+    if (account) {
+      history.push('/account/' + account)
+    }
+  }, [account])
 
   return (
     <AutoColumn gap={'1rem'}>
@@ -100,6 +108,7 @@ function AccountSearch({ history, small }) {
               />
             </Wrapper>
             <ButtonLight onClick={handleAccountSearch}>Load Account Details</ButtonLight>
+            <ButtonLight onClick={() => connect('injected')}>Connect to wallet</ButtonLight>
           </AutoRow>
         </>
       )}

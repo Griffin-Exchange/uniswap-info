@@ -66,6 +66,7 @@ export const ButtonLight = styled(Base)`
   min-width: fit-content;
   border-radius: 12px;
   white-space: nowrap;
+  margin-left: 5px;
 
   a {
     color: ${({ color, theme }) => (color ? darken(0.1, color) : theme.primary1)};

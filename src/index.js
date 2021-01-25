@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ThemeProvider, { GlobalStyle } from './Theme'
+import { UseWalletProvider } from 'use-wallet'
 import LocalStorageContextProvider, { Updater as LocalStorageContextUpdater } from './contexts/LocalStorage'
 import TokenDataContextProvider, { Updater as TokenDataContextUpdater } from './contexts/TokenData'
 import GlobalDataContextProvider from './contexts/GlobalData'
@@ -38,12 +39,19 @@ function Updaters() {
 ReactDOM.render(
   <ContextProviders>
     <Updaters />
-    <ThemeProvider>
-      <>
-        <GlobalStyle />
-        <App />
-      </>
-    </ThemeProvider>
+    <UseWalletProvider
+      chainId={100}
+      connectors={{
+        walletconnect: { rpcUrl: 'https://rpc.xdaichain.com/' }
+      }}
+    >
+      <ThemeProvider>
+        <>
+          <GlobalStyle />
+          <App />
+        </>
+      </ThemeProvider>
+    </UseWalletProvider>
   </ContextProviders>,
   document.getElementById('root')
 )

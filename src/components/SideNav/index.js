@@ -7,7 +7,7 @@ import { useMedia } from 'react-use'
 import { transparentize } from 'polished'
 import { TYPE } from '../../Theme'
 import { withRouter } from 'react-router-dom'
-import { TrendingUp, List, Disc, Wind, PlusSquare, Star, RefreshCcw } from 'react-feather'
+import { TrendingUp, List, Disc, Wind, PlusSquare, Star, RefreshCcw, Home } from 'react-feather'
 import Link from '../Link'
 import { useSessionStart } from '../../contexts/Application'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
@@ -156,7 +156,7 @@ function SideNav({ history }) {
                     }
                   >
                     <List size={20} style={{ marginRight: '.75rem' }} />
-                    Portofolio
+                    Portfolio
                   </Option>
                 </BasicLink>
 
@@ -173,7 +173,7 @@ function SideNav({ history }) {
                   </Option>
                 </BlankLink>
 
-                <BlankLink href="https://griffin.exchange/farms" target="_blank">
+                <BlankLink href="https://griffin.exchange/giga/#/farms" target="_blank">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'get-xdai' ||
@@ -186,11 +186,11 @@ function SideNav({ history }) {
                   </Option>
                 </BlankLink>
 
-                <BlankLink href="https://griffin.exchange/app/#/swap" target="_blank">
+                <BlankLink href="https://griffin.exchange/app/#/pool" target="_blank">
                   <Option
                     activeText={
-                      (history.location.pathname.split('/')[1] === 'swap' ||
-                        history.location.pathname.split('/')[1] === 'swap') ??
+                      (history.location.pathname.split('/')[1] === 'pool' ||
+                        history.location.pathname.split('/')[1] === 'pool') ??
                       undefined
                     }
                   >
@@ -199,7 +199,7 @@ function SideNav({ history }) {
                   </Option>
                 </BlankLink>
 
-                <BlankLink href="https://griffin.exchange/staking" target="_blank">
+                <BlankLink href="https://griffin.exchange/giga/#/staking" target="_blank">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'staking' ||
@@ -212,16 +212,29 @@ function SideNav({ history }) {
                   </Option>
                 </BlankLink>
 
-                <BlankLink href="https://griffin.exchange/app/#/pool" target="_blank">
+                <BlankLink href="https://griffin.exchange/app/#/swap" target="_blank">
                   <Option
                     activeText={
-                      (history.location.pathname.split('/')[1] === 'pool' ||
-                        history.location.pathname.split('/')[1] === 'pool') ??
+                      (history.location.pathname.split('/')[1] === 'swap' ||
+                        history.location.pathname.split('/')[1] === 'swap') ??
                       undefined
                     }
                   >
                     <RefreshCcw size={20} style={{ marginRight: '.75rem' }} />
                     Swap
+                  </Option>
+                </BlankLink>
+
+                <BlankLink href="https://snapshot.page/#/griffin" target="_blank">
+                  <Option
+                    activeText={
+                      (history.location.pathname.split('/')[1] === 'governance' ||
+                        history.location.pathname.split('/')[1] === 'governance') ??
+                      undefined
+                    }
+                  >
+                    <Home size={20} style={{ marginRight: '.75rem' }} />
+                    Governance
                   </Option>
                 </BlankLink>
               </AutoColumn>
@@ -252,10 +265,10 @@ function SideNav({ history }) {
           )}
         </DesktopWrapper>
       ) : (
-        <MobileWrapper>
-          <Title />
-        </MobileWrapper>
-      )}
+          <MobileWrapper>
+            <Title />
+          </MobileWrapper>
+        )}
     </Wrapper>
   )
 }

@@ -1,0 +1,9 @@
+.navbar-collapse {
+  display: none;
+}
+
+.navbar-collapse-show {
+  display: block;
+  transition: 1s ease-out;
+  padding-top: -10px;
+}

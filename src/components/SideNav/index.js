@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { AutoColumn } from '../Column'
 import Title from '../Title'
 import { BasicLink, BlankLink } from '../Link'
+import { ButtonCollapse } from '../ButtonStyled'
 import { useMedia } from 'react-use'
 import { transparentize } from 'polished'
 import { TYPE } from '../../Theme'
 import { withRouter } from 'react-router-dom'
-import { TrendingUp, List, Disc, Wind, PlusSquare, Star, RefreshCcw, Home } from 'react-feather'
+import { TrendingUp, List, Disc, BookOpen, Star, RefreshCcw, Home } from 'react-feather'
 import Link from '../Link'
 import { useSessionStart } from '../../contexts/Application'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
 import Toggle from '../Toggle'
+
+import './styles.css'
 
 const Wrapper = styled.div`
   height: ${({ isMobile }) => (isMobile ? 'initial' : '100vh')};
@@ -99,9 +102,24 @@ const PollingDot = styled.div`
   background-color: ${({ theme }) => theme.green1};
 `
 
-function SideNav({ history }) {
-  const below1080 = useMedia('(max-width: 1080px)')
+const CollapseMenu = styled.span`
+  margin-left: 2rem;
+  padding-bottom: 10px;
+`
 
+const FaddingText = styled.span`
+  font-weight: 300;
+  font-size: 12px;
+  opacity: ${({ activeText }) => 0.4};
+  color: ${({ theme }) => theme.white};
+  padding-top: 1%;
+  padding-left: 1%;
+`
+
+function SideNav({ history }) {
+  const [show, setShow] = useState(false)
+
+  const below1080 = useMedia('(max-width: 1080px)')
   const below1180 = useMedia('(max-width: 1180px)')
 
   const seconds = useSessionStart()
@@ -173,7 +191,7 @@ function SideNav({ history }) {
                   </Option>
                 </BlankLink>
 
-                <BlankLink href="https://griffin.exchange/giga/#/farms" target="_blank">
+                <ButtonCollapse onClick={() => setShow(!show)}>
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'get-xdai' ||
@@ -181,23 +199,59 @@ function SideNav({ history }) {
                       undefined
                     }
                   >
-                    <Wind size={20} style={{ marginRight: '.75rem' }} />
-                    Import LP token
+                    <BookOpen size={20} style={{ marginRight: '.75rem' }} />
+                    Farms <FaddingText> &#x28;Get EXORA&#x29;</FaddingText>
                   </Option>
-                </BlankLink>
+                </ButtonCollapse>
 
-                <BlankLink href="https://griffin.exchange/app/#/pool" target="_blank">
-                  <Option
-                    activeText={
-                      (history.location.pathname.split('/')[1] === 'pool' ||
-                        history.location.pathname.split('/')[1] === 'pool') ??
-                      undefined
-                    }
-                  >
-                    <PlusSquare size={20} style={{ marginRight: '.75rem' }} />
-                    Add Liquidity
-                  </Option>
-                </BlankLink>
+                <div className={`navbar-collapse${show ? '-show' : ''}`}>
+                  <BlankLink href="https://griffin.exchange/giga/#/farms" target="_blank">
+                    <Option
+                      activeText={
+                        (history.location.pathname.split('/')[1] === 'get-xdai' ||
+                          history.location.pathname.split('/')[1] === 'get-xdai') ??
+                        undefined
+                      }
+                    >
+                      <CollapseMenu>Import LP token</CollapseMenu>
+                    </Option>
+                  </BlankLink>
+
+                  <BlankLink href="https://griffin.exchange/app/#/pool" target="_blank">
+                    <Option
+                      activeText={
+                        (history.location.pathname.split('/')[1] === 'pool' ||
+                          history.location.pathname.split('/')[1] === 'pool') ??
+                        undefined
+                      }
+                    >
+                      <CollapseMenu>Add Liquidity</CollapseMenu>
+                    </Option>
+                  </BlankLink>
+                  <BlankLink>
+                    <Option
+                      activeText={
+                        (history.location.pathname.split('/')[1] === 'get-xdai' ||
+                          history.location.pathname.split('/')[1] === 'get-xdai') ??
+                        undefined
+                      }
+                    >
+                      <CollapseMenu>Deposit / Withdraw LP</CollapseMenu>
+                    </Option>
+                  </BlankLink>
+
+                  <BlankLink>
+                    <Option
+                      activeText={
+                        (history.location.pathname.split('/')[1] === 'pool' ||
+                          history.location.pathname.split('/')[1] === 'pool') ??
+                        undefined
+                      }
+                    >
+                      <CollapseMenu>Claim Exora</CollapseMenu>
+                    </Option>
+                  </BlankLink>
+                </div>
 
                 <BlankLink href="https://griffin.exchange/giga/#/staking" target="_blank">
                   <Option
@@ -265,10 +319,10 @@ function SideNav({ history }) {
           )}
         </DesktopWrapper>
       ) : (
-          <MobileWrapper>
-            <Title />
-          </MobileWrapper>
-        )}
+        <MobileWrapper>
+          <Title />
+        </MobileWrapper>
+      )}
     </Wrapper>
   )
 }

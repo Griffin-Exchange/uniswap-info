@@ -152,3 +152,13 @@ export const OptionButton = styled.div`
     cursor: ${({ disabled }) => !disabled && 'pointer'};
   }
 `
+
+export const ButtonCollapse = styled.span`
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    underline: none;
+  }
+`

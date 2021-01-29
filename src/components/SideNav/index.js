@@ -50,6 +50,19 @@ const Option = styled.div`
   }
 `
 
+const OptionM = styled.div`
+  font-weight: 500;
+  font-size: 20px;
+  opacity: ${({ activeText }) => (activeText ? 1 : 0.6)};
+  color: ${({ theme }) => theme.white};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  :hover {
+    opacity: 1;
+  }
+`
+
 const DesktopWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -118,6 +131,7 @@ const FaddingText = styled.span`
 
 function SideNav({ history }) {
   const [show, setShow] = useState(false)
+  const [showDrawer, setShowDrawer] = useState(false)
 
   const below1080 = useMedia('(max-width: 1080px)')
   const below1180 = useMedia('(max-width: 1180px)')
@@ -320,7 +334,141 @@ function SideNav({ history }) {
         </DesktopWrapper>
       ) : (
         <MobileWrapper>
-          <Title />
+          <div className="navbar-title-mobile">
+            <Title />
+            <p onClick={() => setShowDrawer(true)}>&#9776;</p>
+          </div>
+
+          <div className={`sidenav ${showDrawer ? 'open' : 'close'} `}>
+            <span className="closebtn" onClick={() => setShowDrawer(false)}>
+              &times;
+            </span>
+            <BasicLink to="/accounts">
+              <OptionM
+                activeText={
+                  (history.location.pathname.split('/')[1] === 'accounts' ||
+                    history.location.pathname.split('/')[1] === 'account') ??
+                  undefined
+                }
+              >
+                <List size={20} style={{ marginRight: '.75rem' }} />
+                Portfolio
+              </OptionM>
+            </BasicLink>
+            <BasicLink to="/iframe/5">
+              <OptionM
+                activeText={
+                  (history.location.pathname.split('/')[1] === 'get-xdai' ||
+                    history.location.pathname.split('/')[1] === 'get-xdai') ??
+                  undefined
+                }
+              >
+                <Disc size={20} style={{ marginRight: '.75rem' }} />
+                Get Xdai for gas fee
+              </OptionM>
+            </BasicLink>
+
+            <ButtonCollapse onClick={() => setShow(!show)}>
+              <OptionM
+                activeText={
+                  (history.location.pathname.split('/')[1] === 'get-xdai' ||
+                    history.location.pathname.split('/')[1] === 'get-xdai') ??
+                  undefined
+                }
+              >
+                <BookOpen size={20} style={{ marginRight: '.75rem' }} />
+                Farms <FaddingText> &#x28;Get EXORA&#x29;</FaddingText>
+              </OptionM>
+            </ButtonCollapse>
+
+            <div className={`navbar-collapse${show ? '-show' : ''}`}>
+              <BasicLink to="/iframe/0">
+                <OptionM
+                  activeText={
+                    (history.location.pathname.split('/')[1] === 'get-xdai' ||
+                      history.location.pathname.split('/')[1] === 'get-xdai') ??
+                    undefined
+                  }
+                >
+                  <CollapseMenu>Import LP token</CollapseMenu>
+                </OptionM>
+              </BasicLink>
+
+              <BasicLink to="/iframe/1">
+                <OptionM
+                  activeText={
+                    (history.location.pathname.split('/')[1] === 'pool' ||
+                      history.location.pathname.split('/')[1] === 'pool') ??
+                    undefined
+                  }
+                >
+                  <CollapseMenu>Add Liquidity</CollapseMenu>
+                </OptionM>
+              </BasicLink>
+              <BlankLink>
+                <OptionM
+                  activeText={
+                    (history.location.pathname.split('/')[1] === 'get-xdai' ||
+                      history.location.pathname.split('/')[1] === 'get-xdai') ??
+                    undefined
+                  }
+                >
+                  <CollapseMenu>Deposit / Withdraw LP</CollapseMenu>
+                </OptionM>
+              </BlankLink>
+
+              <BlankLink>
+                <OptionM
+                  activeText={
+                    (history.location.pathname.split('/')[1] === 'pool' ||
+                      history.location.pathname.split('/')[1] === 'pool') ??
+                    undefined
+                  }
+                >
+                  <CollapseMenu>Claim Exora</CollapseMenu>
+                </OptionM>
+              </BlankLink>
+            </div>
+
+            <BasicLink to="/iframe/2">
+              <OptionM
+                activeText={
+                  (history.location.pathname.split('/')[1] === 'staking' ||
+                    history.location.pathname.split('/')[1] === 'staking') ??
+                  undefined
+                }
+              >
+                <Star size={20} style={{ marginRight: '.75rem' }} />
+                Stake
+              </OptionM>
+            </BasicLink>
+
+            <BasicLink to="/iframe/3">
+              <OptionM
+                activeText={
+                  (history.location.pathname.split('/')[1] === 'swap' ||
+                    history.location.pathname.split('/')[1] === 'swap') ??
+                  undefined
+                }
+              >
+                <RefreshCcw size={20} style={{ marginRight: '.75rem' }} />
+                Swap
+              </OptionM>
+            </BasicLink>
+
+            <BasicLink to="/iframe/4">
+              <OptionM
+                activeText={
+                  (history.location.pathname.split('/')[1] === 'governance' ||
+                    history.location.pathname.split('/')[1] === 'governance') ??
+                  undefined
+                }
+              >
+                <Home size={20} style={{ marginRight: '.75rem' }} />
+                Governance
+              </OptionM>
+            </BasicLink>
+          </div>
         </MobileWrapper>
       )}
     </Wrapper>

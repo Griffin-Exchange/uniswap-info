@@ -112,6 +112,17 @@ export const PageWrapper = styled.div`
   }
 `
 
+export const PageZeroWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: 600px) {
+    & > * {
+      padding: 0 12px;
+    }
+  }
+`
+
 export const ContentWrapper = styled.div`
   display: grid;
   justify-content: start;

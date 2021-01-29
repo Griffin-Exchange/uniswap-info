@@ -178,7 +178,7 @@ function SideNav({ history }) {
                   </Option>
                 </BasicLink>
 
-                <BlankLink href="https://bridge.xdaichain.com/" target="_blank">
+                <BasicLink to="/iframe/5">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'get-xdai' ||
@@ -189,7 +189,7 @@ function SideNav({ history }) {
                     <Disc size={20} style={{ marginRight: '.75rem' }} />
                     Get Xdai for gas fee
                   </Option>
-                </BlankLink>
+                </BasicLink>
 
                 <ButtonCollapse onClick={() => setShow(!show)}>
                   <Option
@@ -205,7 +205,7 @@ function SideNav({ history }) {
                 </ButtonCollapse>
 
                 <div className={`navbar-collapse${show ? '-show' : ''}`}>
-                  <BlankLink href="https://griffin.exchange/giga/#/farms" target="_blank">
+                  <BasicLink to="/iframe/0">
                     <Option
                       activeText={
                         (history.location.pathname.split('/')[1] === 'get-xdai' ||
@@ -215,9 +215,9 @@ function SideNav({ history }) {
                     >
                       <CollapseMenu>Import LP token</CollapseMenu>
                     </Option>
-                  </BlankLink>
+                  </BasicLink>
 
-                  <BlankLink href="https://griffin.exchange/app/#/pool" target="_blank">
+                  <BasicLink to="/iframe/1">
                     <Option
                       activeText={
                         (history.location.pathname.split('/')[1] === 'pool' ||
@@ -227,7 +227,7 @@ function SideNav({ history }) {
                     >
                       <CollapseMenu>Add Liquidity</CollapseMenu>
                     </Option>
-                  </BlankLink>
+                  </BasicLink>
                   <BlankLink>
                     <Option
                       activeText={
@@ -253,7 +253,7 @@ function SideNav({ history }) {
                   </BlankLink>
                 </div>
 
-                <BlankLink href="https://griffin.exchange/giga/#/staking" target="_blank">
+                <BasicLink to="/iframe/2">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'staking' ||
@@ -264,9 +264,9 @@ function SideNav({ history }) {
                     <Star size={20} style={{ marginRight: '.75rem' }} />
                     Stake
                   </Option>
-                </BlankLink>
+                </BasicLink>
 
-                <BlankLink href="https://griffin.exchange/app/#/swap" target="_blank">
+                <BasicLink to="/iframe/3">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'swap' ||
@@ -277,9 +277,9 @@ function SideNav({ history }) {
                     <RefreshCcw size={20} style={{ marginRight: '.75rem' }} />
                     Swap
                   </Option>
-                </BlankLink>
+                </BasicLink>
 
-                <BlankLink href="https://snapshot.page/#/griffin" target="_blank">
+                <BasicLink to="/iframe/4">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'governance' ||
@@ -290,7 +290,7 @@ function SideNav({ history }) {
                     <Home size={20} style={{ marginRight: '.75rem' }} />
                     Governance
                   </Option>
-                </BlankLink>
+                </BasicLink>
               </AutoColumn>
             )}
           </AutoColumn>

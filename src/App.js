@@ -11,6 +11,7 @@ import { isAddress } from './utils'
 import AccountPage from './pages/AccountPage'
 import AllTokensPage from './pages/AllTokensPage'
 import AllPairsPage from './pages/AllPairsPage'
+import IframePage from './pages/IframePage'
 import PinnedData from './components/PinnedData'
 
 import SideNav from './components/SideNav'
@@ -146,6 +147,15 @@ function App() {
                     } else {
                       return <Redirect to="/home" />
                     }
+                  }}
+                />
+
+                <Route exacts strict path="/iframe/:id" render={({ match }) => {
+                    return (
+                      <LayoutWrapper savedOpen={savedOpen} setSavedOpen={setSavedOpen}>
+                        <IframePage id={match.params.id} />
+                      </LayoutWrapper>
+                    )
                   }}
                 />
 

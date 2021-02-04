@@ -345,6 +345,7 @@ function SideNav({ history }) {
             </span>
             <BasicLink to="/accounts">
               <OptionM
+                onClick={() => setShowDrawer(false)}
                 activeText={
                   (history.location.pathname.split('/')[1] === 'accounts' ||
                     history.location.pathname.split('/')[1] === 'account') ??
@@ -357,6 +358,7 @@ function SideNav({ history }) {
             </BasicLink>
             <BasicLink to="/iframe/5">
               <OptionM
+                onClick={() => setShowDrawer(false)}
                 activeText={
                   (history.location.pathname.split('/')[1] === 'get-xdai' ||
                     history.location.pathname.split('/')[1] === 'get-xdai') ??
@@ -384,6 +386,7 @@ function SideNav({ history }) {
             <div className={`navbar-collapse${show ? '-show' : ''}`}>
               <BasicLink to="/iframe/0">
                 <OptionM
+                  onClick={() => setShowDrawer(false)}
                   activeText={
                     (history.location.pathname.split('/')[1] === 'get-xdai' ||
                       history.location.pathname.split('/')[1] === 'get-xdai') ??
@@ -396,6 +399,7 @@ function SideNav({ history }) {
 
               <BasicLink to="/iframe/1">
                 <OptionM
+                  onClick={() => setShowDrawer(false)}
                   activeText={
                     (history.location.pathname.split('/')[1] === 'pool' ||
                       history.location.pathname.split('/')[1] === 'pool') ??
@@ -407,6 +411,7 @@ function SideNav({ history }) {
               </BasicLink>
               <BlankLink>
                 <OptionM
+                  onClick={() => setShowDrawer(false)}
                   activeText={
                     (history.location.pathname.split('/')[1] === 'get-xdai' ||
                       history.location.pathname.split('/')[1] === 'get-xdai') ??
@@ -419,6 +424,7 @@ function SideNav({ history }) {
 
               <BlankLink>
                 <OptionM
+                  onClick={() => setShowDrawer(false)}
                   activeText={
                     (history.location.pathname.split('/')[1] === 'pool' ||
                       history.location.pathname.split('/')[1] === 'pool') ??
@@ -432,6 +438,7 @@ function SideNav({ history }) {
 
             <BasicLink to="/iframe/2">
               <OptionM
+                onClick={() => setShowDrawer(false)}
                 activeText={
                   (history.location.pathname.split('/')[1] === 'staking' ||
                     history.location.pathname.split('/')[1] === 'staking') ??
@@ -445,6 +452,7 @@ function SideNav({ history }) {
 
             <BasicLink to="/iframe/3">
               <OptionM
+                onClick={() => setShowDrawer(false)}
                 activeText={
                   (history.location.pathname.split('/')[1] === 'swap' ||
                     history.location.pathname.split('/')[1] === 'swap') ??
@@ -458,6 +466,7 @@ function SideNav({ history }) {
 
             <BasicLink to="/iframe/4">
               <OptionM
+                onClick={() => setShowDrawer(false)}
                 activeText={
                   (history.location.pathname.split('/')[1] === 'governance' ||
                     history.location.pathname.split('/')[1] === 'governance') ??

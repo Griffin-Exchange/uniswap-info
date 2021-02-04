@@ -24,14 +24,18 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   top: 0;
   left: 0;
-  background-color: #111;
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 0, 36, 0.48082983193277307) 0%,
+    rgba(255, 99, 64, 1) 0%,
+    rgba(0, 12, 14, 0.6629026610644257) 100%
+  );
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
-  text-align: center;
   opacity: 1 !important;
 }
 
